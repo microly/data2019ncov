@@ -21,9 +21,9 @@ devtools::install_github("microly/data2019ncov")
 library(data2019ncov)
 library(sf) # I am sorry that you have to attach the sf package manually. I will handle this problem later.
 
-# get the 2019-nCov data at provincial level at the time: 2:00, January 29.
-sf_provice(month = 1, day = 29, hour = 2)
+# get the 2019-nCov data at provincial level at the time: 20:00, January 29.
+sf_provice(month = 1, day = 29, hour = 20)
 
-# get the 2019-nCov data at the prefecture city level at the time: 2:00, January 29.
-sf_prefecture_city(month = 1, day = 29, hour = 2)
+# get the 2019-nCov data at the prefecture city level at the time: 20:00, January 29.
+sf_prefecture_city(month = 1, day = 29, hour = 20)
 ```
