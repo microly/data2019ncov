@@ -1,1 +1,2 @@
-'%>%' <- dplyr::'%>%'
+#' @importFrom magrittr %>%
+magrittr::`%>%`

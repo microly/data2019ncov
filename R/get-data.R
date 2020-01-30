@@ -7,10 +7,15 @@
 #' @param hour a integer
 #'
 #' @return a sf object
+#' @importFrom purrr possibly
+#' @import dplyr
+#' @importFrom utils read.csv
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' sf_provice()
+#' }
 sf_provice <- function(month, day, hour) {
 
     month <- good_char(month)
@@ -52,9 +57,12 @@ sf_provice <- function(month, day, hour) {
 #'
 #' @return a sf object
 #' @export
-#'
+#' @importFrom sf read_sf st_contains
+#' @importFrom purrr map_dbl
 #' @examples
+#' \dontrun{
 #' sf_prefecture_city()
+#' }
 sf_prefecture_city <- function(month, day, hour) {
 
     month <- good_char(month)

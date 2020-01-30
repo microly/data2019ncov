@@ -1,12 +1,13 @@
 Package: data2019ncov
 Type: Package
 Title: the 2019-nCov data
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: person("Yu", "Liu", email = "microly@foxmail.com", role = c("aut", "cre"))
 Maintainer: Yu Liu <microly@foxmail.com>
 Description: Get the 2019-nCov data from https://gitlab.com/wybert/open-2019-ncov.
 License: GPL-2
+Depends: R (>= 2.10)
 Encoding: UTF-8
 LazyData: true
-Imports: dplyr, sf, purrr
-RoxygenNote: 6.1.1
+Imports: dplyr, sf, purrr, magrittr
+RoxygenNote: 7.0.2
