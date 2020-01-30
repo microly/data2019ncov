@@ -20,5 +20,7 @@ a sf object
 get the 2019-nCov data at provincial level
 }
 \examples{
+\dontrun{
 sf_provice()
+}
 }

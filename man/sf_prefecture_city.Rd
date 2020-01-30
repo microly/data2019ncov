@@ -20,5 +20,7 @@ a sf object
 get the 2019-nCov data at the prefecture city level
 }
 \examples{
+\dontrun{
 sf_prefecture_city()
+}
 }

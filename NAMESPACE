@@ -2,3 +2,10 @@
 
 export(sf_prefecture_city)
 export(sf_provice)
+import(dplyr)
+importFrom(magrittr,"%>%")
+importFrom(purrr,map_dbl)
+importFrom(purrr,possibly)
+importFrom(readr,read_csv)
+importFrom(sf,read_sf)
+importFrom(sf,st_contains)
