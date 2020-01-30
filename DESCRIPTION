@@ -8,5 +8,5 @@ Description: Get the 2019-nCov data from https://gitlab.com/wybert/open-2019-nco
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-Imports: dplyr, sf, purrr
+Imports: dplyr, sf, purrr, readr
 RoxygenNote: 6.1.1
