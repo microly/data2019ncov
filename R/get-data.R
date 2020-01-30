@@ -9,7 +9,7 @@
 #' @return a sf object
 #' @importFrom purrr possibly
 #' @import dplyr
-#' @importFrom utils read.csv
+#' @importFrom readr read_csv
 #' @export
 #'
 #' @examples
@@ -25,8 +25,7 @@ sf_provice <- function(month, day, hour) {
     url <- paste0("http://69.171.70.18:5000/download/province_level_2020-",
                   month, "-", day, "T", hour, ".csv")
 
-    data <- purrr::possibly(read.csv, NA)(url, fileEncoding = 'UTF-8',
-                                   stringsAsFactors = FALSE)
+    data <- purrr::possibly(readr::read_csv, NA)(url)
 
     if (!is.data.frame(data)) {
         warning(paste0("month: ", month, ", day: ", day,
@@ -40,9 +39,9 @@ sf_provice <- function(month, day, hour) {
                           cured = curedCount, dead = deadCount)
 
     map_provice %>% dplyr::left_join(data, by = c("name" = "province")) %>%
-        dplyr::mutate(confirmed = dplyr::coalesce(confirmed, 0L),
-                      cured = dplyr::coalesce(cured, 0L),
-                      dead = dplyr::coalesce(dead, 0L)) %>%
+        dplyr::mutate(confirmed = dplyr::coalesce(confirmed, 0),
+                      cured = dplyr::coalesce(cured, 0),
+                      dead = dplyr::coalesce(dead, 0)) %>%
         dplyr::select(adcode, name, confirmed, cured, dead)
 }
 
