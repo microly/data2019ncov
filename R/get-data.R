@@ -13,6 +13,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' get the 2019-nCov data at provincial level at the time: 20:00, January 29.
+#' sf_provice(month = 1, day = 29, hour = 20)
+#' }
 sf_provice <- function(month, day, hour) {
 
     month <- good_char(month)
@@ -56,6 +60,10 @@ sf_provice <- function(month, day, hour) {
 #' @importFrom sf read_sf st_contains
 #' @importFrom purrr map_dbl
 #' @examples
+#' \dontrun{
+#' # get the 2019-nCov data at the prefecture city level at the time: 20:00, January 29.
+#' sf_prefecture_city(month = 1, day = 29, hour = 20)
+#' }
 sf_prefecture_city <- function(month, day, hour) {
 
     month <- good_char(month)
