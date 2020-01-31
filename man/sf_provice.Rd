@@ -21,6 +21,7 @@ get the 2019-nCov data at provincial level
 }
 \examples{
 \dontrun{
-sf_provice()
+get the 2019-nCov data at provincial level at the time: 20:00, January 29.
+sf_provice(month = 1, day = 29, hour = 20)
 }
 }

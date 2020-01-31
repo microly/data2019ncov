@@ -21,6 +21,7 @@ get the 2019-nCov data at the prefecture city level
 }
 \examples{
 \dontrun{
-sf_prefecture_city()
+# get the 2019-nCov data at the prefecture city level at the time: 20:00, January 29.
+sf_prefecture_city(month = 1, day = 29, hour = 20)
 }
 }
