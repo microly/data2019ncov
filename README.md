@@ -19,7 +19,6 @@ devtools::install_github("microly/data2019ncov")
 ## 使用方法：
 ```r
 library(data2019ncov)
-library(sf) # I am sorry that you have to attach the sf package manually. I will handle this problem later.
 
 # get the 2019-nCov data at provincial level at the time: 20:00, January 29.
 sf_provice(month = 1, day = 29, hour = 20)
