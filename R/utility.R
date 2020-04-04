@@ -1,2 +1,2 @@
 #' @importFrom magrittr %>%
-magrittr::`%>%`
+NULL
