@@ -8,8 +8,7 @@
 #'
 #' @return a sf object
 #' @importFrom purrr possibly
-#' @import dplyr
-#' @importFrom readr read_csv
+#' @importFrom dplyr select left_join mutate
 #' @export
 #'
 #' @examples
@@ -26,7 +25,7 @@ sf_provice <- function(month, day, hour) {
     url <- paste0("http://69.171.70.18:5000/download/province_level_2020-",
                   month, "-", day, "T", hour, ".csv")
 
-    data <- purrr::possibly(readr::read_csv, NA)(url)
+    data <- possibly(read.csv, NA)(url)
 
     if (!is.data.frame(data)) {
         warning(paste0("month: ", month, ", day: ", day,
@@ -59,6 +58,7 @@ sf_provice <- function(month, day, hour) {
 #' @export
 #' @importFrom sf read_sf st_contains
 #' @importFrom purrr map_dbl
+#' @importFrom dplyr mutate bind_cols select
 #' @examples
 #' \dontrun{
 #' # get the 2019-nCov data at the prefecture city level at the time: 20:00, January 29.
@@ -86,12 +86,12 @@ sf_prefecture_city <- function(month, day, hour) {
     class(sgbp) <- NULL
 
     df_data <- data.frame(sgbp = I(sgbp)) %>%
-        dplyr::mutate(confirmed = purrr::map_dbl(sgbp, ~get_sum(., data, "city.confirmedCount")),
-                      cured = purrr::map_dbl(sgbp, ~get_sum(., data, "city.curedCount")),
-                      dead = purrr::map_dbl(sgbp, ~get_sum(., data, "city.deadCount")))
+        mutate(confirmed = map_dbl(sgbp, ~get_sum(., data, "city.confirmedCount")),
+                      cured = map_dbl(sgbp, ~get_sum(., data, "city.curedCount")),
+                      dead = map_dbl(sgbp, ~get_sum(., data, "city.deadCount")))
 
-    dplyr::bind_cols(map_city, df_data) %>%
-        dplyr::select(adcode, name, confirmed, cured, dead)
+    bind_cols(map_city, df_data) %>%
+        select(adcode, name, confirmed, cured, dead)
 }
 
 
