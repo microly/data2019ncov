@@ -25,7 +25,7 @@ sf_provice <- function(month, day, hour) {
     url <- paste0("http://69.171.70.18:5000/download/province_level_2020-",
                   month, "-", day, "T", hour, ".csv")
 
-    data <- possibly(read.csv, NA)(url)
+    data <- possibly(readr::read_csv, NA)(url)
 
     if (!is.data.frame(data)) {
         warning(paste0("month: ", month, ", day: ", day,
